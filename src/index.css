@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --background: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  
+  --color-brand: #7C3AED;
+  --color-brand-dark: #6D28D9;
+  --color-brand-light: #C084FC;
+  --color-brand-bg: #F5F3FF;
+}
+
+.dark {
+  --background: #0B0F19;
+  --card-bg: #151F32;
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --border-color: #1E293B;
+  
+  --color-brand: #8B5CF6;
+  --color-brand-dark: #7C3AED;
+  --color-brand-light: #A78BFA;
+  --color-brand-bg: #2E1065;
+}
+
+@theme {
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-light: var(--color-brand-light);
+  --color-brand-bg: var(--color-brand-bg);
+  --color-bg-main: var(--background);
+  --color-card-bg: var(--card-bg);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-border-color: var(--border-color);
+  
+  --font-sans: 'Inter', sans-serif;
+  --shadow-premium: 0 6px 20px rgba(0,0,0,0.06);
+  --shadow-premium-hover: 0 12px 30px rgba(0,0,0,0.12);
+  --shadow-subtle: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DDDDDD;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C1C1C1;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Glassmorphism and animations utility classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dark .glass-panel {
+  background: rgba(21, 31, 50, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 60%);
+}
+
+.dark .hero-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.08) 0%, transparent 60%);
+}
+
+/* =============================================================
+   GLOBAL DARK MODE OVERRIDES
+   These automatically apply dark styling to all pages without
+   needing dark: classes on every element.
+   ============================================================= */
+
+/* White cards / panels → dark card */
+.dark .bg-white {
+  background-color: #151F32 !important;
+}
+.dark .bg-white\/70 {
+  background-color: rgba(21, 31, 50, 0.7) !important;
+}
+.dark .bg-white\/95 {
+  background-color: rgba(11, 15, 25, 0.95) !important;
+}
+.dark .focus-within\:bg-white:focus-within {
+  background-color: #151F32 !important;
+}
+
+/* Light gray backgrounds → dark surface */
+.dark .bg-gray-50 {
+  background-color: #0F172A !important;
+}
+.dark .bg-\[\#FAFAFA\] {
+  background-color: #0B0F19 !important;
+}
+.dark .bg-\[\#FAF5F6\] {
+  background-color: #151F32 !important;
+}
+.dark .bg-gray-50\/50 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+}
+.dark .bg-gray-50\/70 {
+  background-color: rgba(15, 23, 42, 0.7) !important;
+}
+.dark .bg-gray-55\/50 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+}
+.dark .bg-gray-100 {
+  background-color: #1E293B !important;
+}
+.dark .bg-gray-150\/40 {
+  background-color: rgba(30, 41, 59, 0.4) !important;
+}
+.dark .bg-gray-200 {
+  background-color: #1E293B !important;
+}
+
+/* Text colors */
+.dark .text-gray-950,
+.dark .text-gray-900,
+.dark .text-gray-800 {
+  color: #F1F5F9 !important;
+}
+.dark .text-gray-750,
+.dark .text-gray-700,
+.dark .text-gray-655,
+.dark .text-gray-650,
+.dark .text-gray-600 {
+  color: #CBD5E1 !important;
+}
+.dark .text-gray-550,
+.dark .text-gray-500,
+.dark .text-gray-450,
+.dark .text-gray-400 {
+  color: #94A3B8 !important;
+}
+
+/* Borders */
+.dark .border-gray-55,
+.dark .border-gray-50,
+.dark .border-gray-100,
+.dark .border-gray-150,
+.dark .border-gray-200,
+.dark .border-gray-205,
+.dark .border-gray-250,
+.dark .border-gray-200\/40 {
+  border-color: #1E293B !important;
+}
+.dark .border-gray-300 {
+  border-color: #334155 !important;
+}
+
+/* Form inputs */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1E293B;
+  color: #F1F5F9;
+  border-color: #334155;
+}
+.dark .bg-transparent {
+  background-color: transparent !important;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94A3B8 !important;
+}
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  background-color: #0F172A !important;
+  border-color: #7C3AED !important;
+}
+
+/* Tables */
+.dark table th {
+  background-color: #1E293B;
+  color: #CBD5E1;
+}
+.dark table td {
+  border-color: #1E293B;
+  color: #CBD5E1;
+}
+.dark table tr:hover {
+  background-color: #1E293B;
+}
+
+/* Dividers */
+.dark .divide-gray-100 > * + * {
+  border-color: #1E293B;
+}
+.dark .divide-gray-200 > * + * {
+  border-color: #1E293B;
+}
+
+/* Shadows in dark mode are more subtle */
+.dark .shadow-sm,
+.dark .shadow,
+.dark .shadow-md {
+  --tw-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Rings / focus outlines */
+.dark .ring-gray-200 {
+  --tw-ring-color: #334155;
+}
+
+/* Hover bg in dark */
+.dark .hover\:bg-white:hover {
+  background-color: #1E293B !important;
+}
+.dark .hover\:bg-gray-50:hover {
+  background-color: #1E293B !important;
+}
+.dark .hover\:bg-gray-50\/50:hover {
+  background-color: rgba(30, 41, 59, 0.5) !important;
+}
+.dark .hover\:bg-gray-100:hover {
+  background-color: #1E293B !important;
+}
