@@ -173,7 +173,13 @@ function App() {
             },
             success: {
               iconTheme: {
-                primary: '#FF385C',
+                primary: '#10B981', // Emerald Green
+                secondary: '#ffffff',
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: '#EF4444', // Red
                 secondary: '#ffffff',
               },
             },
