@@ -1,4 +1,4 @@
-# 🏨 BookNearMe - Hotel Booking Platform (Frontend)
+# 🏨 BookNearMe - Hotel Booking Platform (Frontend)  https://book-near-me.vercel.app/
 
 A modern, responsive **React + JavaScript + Vite** frontend for a full-featured hotel booking platform with AI-powered features, seamless animations, and beautiful UI.
 
